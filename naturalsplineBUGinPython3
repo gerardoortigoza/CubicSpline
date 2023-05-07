@@ -1,0 +1,17 @@
+BUG in Python3  f = CubicSpline(x, y, bc_type='natural')
+x = [0, 1, 2]
+y = [1, 3, 2]
+
+# use bc_type = 'natural' adds the constraints as we described above
+f = CubicSpline(x, y, bc_type='natural')
+f.c
+array([[-0.75,  0.75],
+       [ 0.  , -2.25],
+       [ 2.75,  0.5 ],
+       [ 1.  ,  3.  ]])
+correct
+array([[-0.75,  0.75],
+       [ 0.  , -4.5 ],
+       [ 2.75,  7.25],
+       [ 1.  , -0.5 ]])
+you can find the details in https://pythonnumericalmethods.berkeley.edu/notebooks/chapter17.03-Cubic-Spline-Interpolation.html
